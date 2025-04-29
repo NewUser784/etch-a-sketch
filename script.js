@@ -12,7 +12,9 @@ function newGrid() {
             square.style.backgroundColor = "black";
         })
 
-        gridContainer.appendChild(square);
+        squares[i] = square;
+
+        gridContainer.appendChild(squares[i]);
     }
 
 }
@@ -20,6 +22,7 @@ function newGrid() {
 let gridContainer = document.querySelector(".grid-container");
 let newGridBut = document.querySelector("button");
 let userInput = 16;
+let squares = [];
 
 newGridBut.addEventListener("click", () => {
     userInput = getUserInput();
