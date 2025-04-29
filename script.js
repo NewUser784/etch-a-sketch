@@ -14,6 +14,8 @@ function deleteGrid() {
 }
 
 function newGrid(gridSize) {
+    let newWidthHeight = String((800 / gridSize)) + "px";
+
     gridSize *= gridSize;
 
     for (let i = 0; i < gridSize; i++) {
@@ -23,6 +25,9 @@ function newGrid(gridSize) {
         square.addEventListener("mouseover", () => {
             square.style.backgroundColor = "black";
         })
+
+        square.style.width = newWidthHeight;
+        square.style.height = newWidthHeight;
 
         squares[i] = square;
 
