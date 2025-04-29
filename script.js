@@ -1,6 +1,13 @@
 
 function getUserInput() {
-    return prompt("Squares per side, 100 max: ");
+
+    let userInput = Number(prompt("Squares per side, 100 max: "));
+
+    while (isNaN(userInput) || typeof userInput !== 'number' || userInput <= 0 || userInput > 99) {
+        userInput = Number(prompt("ERROR - Introduce a valid value: "));
+    }
+
+    return userInput;
 }
 
 function deleteGrid() {
