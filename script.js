@@ -3,8 +3,20 @@ function getUserInput() {
     return prompt("Squares per side, 100 max: ");
 }
 
-function newGrid() {
-    for (let i = 0; i < 256; i++) {
+function deleteGrid() {
+    for (let i = 0; i < squares.length; i++) {
+        gridContainer.removeChild(squares[i]);
+    }
+
+    for (let i = 0; i < squares.length; i++) {
+        squares.pop();
+    }
+}
+
+function newGrid(gridSize) {
+    gridSize *= gridSize;
+
+    for (let i = 0; i < gridSize; i++) {
         let square = document.createElement("div");
         square.classList.toggle("square");
     
@@ -24,9 +36,11 @@ let newGridBut = document.querySelector("button");
 let userInput = 16;
 let squares = [];
 
+newGrid(userInput);
+
 newGridBut.addEventListener("click", () => {
-    userInput = getUserInput();
-    console.log(userInput);
+    deleteGrid();
+    newGrid(getUserInput());
 });
 
-newGrid();
+
