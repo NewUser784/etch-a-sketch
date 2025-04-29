@@ -4,11 +4,13 @@ function getUserInput() {
 }
 
 function deleteGrid() {
+    let originalLength = squares.length;
+
     for (let i = 0; i < squares.length; i++) {
         gridContainer.removeChild(squares[i]);
     }
 
-    for (let i = 0; i < squares.length; i++) {
+    for (let i = 0; i < originalLength; i++) {
         squares.pop();
     }
 }
