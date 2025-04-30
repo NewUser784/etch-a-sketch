@@ -1,4 +1,8 @@
 
+function randRGBNum() {
+    return Math.floor(Math.random() * 256);
+}
+
 function getUserInput() {
 
     let userInput = Number(prompt("Squares per side, 100 max: "));
@@ -30,10 +34,13 @@ function newGrid(gridSize) {
     for (let i = 0; i < gridSize; i++) {
         let opacity = 0;
         let square = document.createElement("div");
+        let redValue = randRGBNum();
+        let greenValue = randRGBNum();
+        let blueValue = randRGBNum();
         square.classList.toggle("square");
     
         square.addEventListener("mouseover", () => {
-            square.style.backgroundColor = "black";
+            square.style.backgroundColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
             square.style.opacity = String(opacity += 10) + "%";
         })
 
