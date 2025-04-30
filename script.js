@@ -28,11 +28,13 @@ function newGrid(gridSize) {
     gridSize *= gridSize;
 
     for (let i = 0; i < gridSize; i++) {
+        let opacity = 0;
         let square = document.createElement("div");
         square.classList.toggle("square");
     
         square.addEventListener("mouseover", () => {
             square.style.backgroundColor = "black";
+            square.style.opacity = String(opacity += 10) + "%";
         })
 
         square.style.width = newWidthHeight;
